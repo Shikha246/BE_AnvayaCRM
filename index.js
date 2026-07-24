@@ -6,6 +6,7 @@ import reportRoutes from "./routes/reportRoutes.js";
 import leadRoutes from "./routes/leadRoutes.js";
 import salesAgentRoutes from "./routes/salesAgentRoutes.js";
 import commentRoutes from "./routes/commentRoutes.js";
+import authRoutes from "./routes/authRoutes.js";
 import cors from "cors";
 const app = express();
 
@@ -19,6 +20,7 @@ app.use(express.json());
 initializeDatabase();
 
 // ✅ Routes
+app.use("/api", authRoutes);
 app.use("/api",leadRoutes);
 app.use("/api",salesAgentRoutes);
 app.use("/api", commentRoutes);
